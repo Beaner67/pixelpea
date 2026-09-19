@@ -1,0 +1,388 @@
+/* Windows 95/98 Authentic Retro Theme Stylesheet */
+
+:root {
+  --win-gray: #c0c0c0;
+  --win-white: #ffffff;
+  --win-light: #dfdfdf;
+  --win-dark: #808080;
+  --win-black: #000000;
+  --win-blue-start: #000080;
+  --win-blue-end: #1084d0;
+  --win-desktop-teal: #008080;
+  --win-font: "MS Sans Serif", Tahoma, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--win-font);
+  font-size: 11px;
+  background-color: var(--win-desktop-teal);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  font-smooth: never;
+}
+
+/* 3D Bevel Utilities */
+.win-bevel-raised {
+  background-color: var(--win-gray);
+  box-shadow: inset -1px -1px var(--win-black),
+              inset 1px 1px var(--win-white),
+              inset -2px -2px var(--win-dark),
+              inset 2px 2px var(--win-light);
+}
+
+.win-bevel-sunken {
+  background-color: var(--win-gray);
+  box-shadow: inset 1px 1px var(--win-black),
+              inset -1px -1px var(--win-white),
+              inset 2px 2px var(--win-dark),
+              inset -2px -2px var(--win-light);
+}
+
+.win-bevel-well {
+  background-color: var(--win-white);
+  box-shadow: inset 1px 1px var(--win-black),
+              inset -1px -1px var(--win-white),
+              inset 2px 2px var(--win-dark),
+              inset -2px -2px var(--win-light);
+}
+
+.win-bevel-soft-raised {
+  background-color: var(--win-gray);
+  box-shadow: inset 1px 1px var(--win-white),
+              inset -1px -1px var(--win-dark);
+}
+
+.win-bevel-soft-sunken {
+  background-color: var(--win-gray);
+  box-shadow: inset 1px 1px var(--win-dark),
+              inset -1px -1px var(--win-white);
+}
+
+/* Push Buttons */
+.win-button {
+  background-color: var(--win-gray);
+  border: none;
+  font-family: var(--win-font);
+  font-size: 11px;
+  padding: 3px 8px;
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset -1px -1px var(--win-black),
+              inset 1px 1px var(--win-white),
+              inset -2px -2px var(--win-dark),
+              inset 2px 2px var(--win-light);
+}
+
+.win-button:active,
+.win-button.active,
+.win-button.pressed {
+  box-shadow: inset 1px 1px var(--win-black),
+              inset -1px -1px var(--win-white),
+              inset 2px 2px var(--win-dark),
+              inset -2px -2px var(--win-light);
+  padding: 4px 7px 2px 9px;
+}
+
+.win-button:disabled {
+  color: var(--win-dark);
+  text-shadow: 1px 1px 0 var(--win-white);
+  pointer-events: none;
+}
+
+/* Window Containers */
+.win-window {
+  background-color: var(--win-gray);
+  padding: 3px;
+  box-shadow: inset -1px -1px var(--win-black),
+              inset 1px 1px var(--win-white),
+              inset -2px -2px var(--win-dark),
+              inset 2px 2px var(--win-light);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Titlebars */
+.win-titlebar {
+  background: linear-gradient(90deg, var(--win-blue-start), var(--win-blue-end));
+  color: var(--win-white);
+  padding: 2px 3px 3px 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 11px;
+  letter-spacing: 0.2px;
+  cursor: default;
+}
+
+.win-titlebar.inactive {
+  background: linear-gradient(90deg, var(--win-dark), #b5b5b5);
+  color: var(--win-light);
+}
+
+.win-titlebar-title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.win-titlebar-controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.win-titlebar-btn {
+  width: 16px;
+  height: 14px;
+  background-color: var(--win-gray);
+  border: none;
+  font-size: 9px;
+  font-weight: bold;
+  font-family: var(--win-font);
+  color: var(--win-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  box-shadow: inset -1px -1px var(--win-black),
+              inset 1px 1px var(--win-white),
+              inset -2px -2px var(--win-dark),
+              inset 2px 2px var(--win-light);
+}
+
+.win-titlebar-btn:active {
+  box-shadow: inset 1px 1px var(--win-black),
+              inset -1px -1px var(--win-white),
+              inset 2px 2px var(--win-dark),
+              inset -2px -2px var(--win-light);
+  transform: translate(1px, 1px);
+}
+
+/* Menu Bar & Dropdowns */
+.win-menubar {
+  background-color: var(--win-gray);
+  display: flex;
+  align-items: center;
+  padding: 1px 2px;
+  border-bottom: 1px solid var(--win-dark);
+  position: relative;
+  z-index: 100;
+}
+
+.win-menu-trigger {
+  padding: 3px 6px;
+  cursor: default;
+  color: var(--win-black);
+  position: relative;
+}
+
+.win-menu-trigger:hover,
+.win-menu-trigger.active {
+  background-color: var(--win-blue-start);
+  color: var(--win-white);
+}
+
+.win-menu-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  background-color: var(--win-gray);
+  box-shadow: inset -1px -1px var(--win-black),
+              inset 1px 1px var(--win-white),
+              inset -2px -2px var(--win-dark),
+              inset 2px 2px var(--win-light),
+              2px 2px 4px rgba(0,0,0,0.3);
+  padding: 2px;
+  z-index: 1000;
+}
+
+.win-menu-item {
+  padding: 3px 18px 3px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: default;
+  color: var(--win-black);
+  position: relative;
+  white-space: nowrap;
+}
+
+.win-menu-item.disabled {
+  color: var(--win-dark);
+  text-shadow: 1px 1px 0 var(--win-white);
+  pointer-events: none;
+}
+
+.win-menu-item:hover:not(.disabled) {
+  background-color: var(--win-blue-start);
+  color: var(--win-white);
+}
+
+.win-menu-separator {
+  height: 2px;
+  margin: 3px 2px;
+  border-top: 1px solid var(--win-dark);
+  border-bottom: 1px solid var(--win-white);
+}
+
+.win-menu-shortcut {
+  margin-left: 20px;
+  color: inherit;
+  opacity: 0.8;
+}
+
+/* Tool Buttons in 2-Column Grid */
+.win-tool-btn {
+  width: 25px;
+  height: 25px;
+  background-color: var(--win-gray);
+  border: none;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset -1px -1px var(--win-black),
+              inset 1px 1px var(--win-white),
+              inset -2px -2px var(--win-dark),
+              inset 2px 2px var(--win-light);
+}
+
+.win-tool-btn.active {
+  background-color: var(--win-white);
+  background-image: radial-gradient(var(--win-light) 25%, transparent 25%);
+  background-size: 2px 2px;
+  box-shadow: inset 1px 1px var(--win-black),
+              inset -1px -1px var(--win-white),
+              inset 2px 2px var(--win-dark),
+              inset -2px -2px var(--win-light);
+}
+
+/* Status Bar */
+.win-statusbar {
+  background-color: var(--win-gray);
+  padding: 2px;
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.win-status-segment {
+  box-shadow: inset 1px 1px var(--win-dark),
+              inset -1px -1px var(--win-white);
+  padding: 2px 5px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Checkered Background Pattern for Transparent Canvases */
+.canvas-checkerboard {
+  background-color: #ffffff;
+  background-image: 
+    linear-gradient(45deg, #cccccc 25%, transparent 25%),
+    linear-gradient(-45deg, #cccccc 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #cccccc 75%),
+    linear-gradient(-45deg, transparent 75%, #cccccc 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+}
+
+/* Classic Form Elements */
+input[type="text"],
+input[type="number"],
+select {
+  font-family: var(--win-font);
+  font-size: 11px;
+  background-color: var(--win-white);
+  border: none;
+  padding: 2px 4px;
+  box-shadow: inset 1px 1px var(--win-black),
+              inset -1px -1px var(--win-white),
+              inset 2px 2px var(--win-dark),
+              inset -2px -2px var(--win-light);
+  outline: none;
+}
+
+input[type="range"] {
+  accent-color: var(--win-blue-start);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+  background-color: var(--win-light);
+}
+
+::-webkit-scrollbar-button {
+  background-color: var(--win-gray);
+  box-shadow: inset -1px -1px var(--win-black),
+              inset 1px 1px var(--win-white),
+              inset -2px -2px var(--win-dark),
+              inset 2px 2px var(--win-light);
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--win-gray);
+  box-shadow: inset -1px -1px var(--win-black),
+              inset 1px 1px var(--win-white),
+              inset -2px -2px var(--win-dark),
+              inset 2px 2px var(--win-light);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--win-light);
+}
+
+/* Win95 Yellow Tooltip Override */
+.win-tool-btn[title] {
+  position: relative;
+}
+
+/* Win95-style tooltip via title attribute — browser native, but we also
+   style any custom tooltip containers if needed */
+.win-tooltip {
+  background-color: #ffffe1;
+  border: 1px solid #000000;
+  color: #000000;
+  font-family: var(--win-font);
+  font-size: 11px;
+  padding: 2px 5px;
+  position: absolute;
+  z-index: 9999;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Toolbox scrollbar — thinner for the narrow toolbar */
+.win-toolbox::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Smooth scrollbar for canvas viewport */
+.win-canvas-viewport {
+  scrollbar-width: thin;
+}
